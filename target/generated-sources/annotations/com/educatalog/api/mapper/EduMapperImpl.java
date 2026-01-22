@@ -12,8 +12,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2026-01-22T12:27:44+0100",
-    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 21.0.9 (Ubuntu)"
+    date = "2026-01-22T14:38:17+0100",
+    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.45.0.v20260101-2150, environment: Java 21.0.9 (Eclipse Adoptium)"
 )
 @Component
 public class EduMapperImpl implements EduMapper {
@@ -26,8 +26,8 @@ public class EduMapperImpl implements EduMapper {
 
         Theme theme = new Theme();
 
-        theme.setName( request.name() );
         theme.setDescription( request.description() );
+        theme.setName( request.name() );
 
         return theme;
     }
@@ -59,8 +59,8 @@ public class EduMapperImpl implements EduMapper {
 
         Lesson lesson = new Lesson();
 
-        lesson.setTitle( request.title() );
         lesson.setContent( request.content() );
+        lesson.setTitle( request.title() );
 
         return lesson;
     }

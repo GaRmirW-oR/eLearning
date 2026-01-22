@@ -25,10 +25,19 @@ public class GlobalExceptionHandler {
         problem.setTitle("Validation Error");
 
         // Collect field errors
+        java.util.Map<String, String> errors = new java.util.HashMap<>();
         e.getBindingResult().getFieldErrors().forEach(error -> {
-            problem.setProperty(error.getField(), error.getDefaultMessage());
+            errors.put(error.getField(), error.getDefaultMessage());
         });
+        problem.setProperty("errors", errors);
 
+        return problem;
+    }
+
+    @ExceptionHandler(com.educatalog.domain.exception.NotFoundException.class)
+    public ProblemDetail handleNotFound(com.educatalog.domain.exception.NotFoundException e) {
+        ProblemDetail problem = ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND, e.getMessage());
+        problem.setTitle("Not Found");
         return problem;
     }
 }
