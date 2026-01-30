@@ -1,0 +1,19 @@
+package com.educatalog.progress;
+
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/")
+@RequiredArgsConstructor
+public class ProgressController {
+
+    private final ProgressService progressService;
+
+    @GetMapping("/me")
+    public Iterable<ProgressService.ProgressDto> getMe() {
+        return progressService.getMyProgress();
+    }
+}
